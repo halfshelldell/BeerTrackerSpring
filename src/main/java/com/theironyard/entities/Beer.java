@@ -10,7 +10,7 @@ import javax.persistence.*;
 public class Beer {
     @Id
     @GeneratedValue
-    Integer id;
+    int id;
 
     @Column(nullable = false)
     public String name;
@@ -21,6 +21,16 @@ public class Beer {
     @Column(nullable = false)
     public Integer calories;
 
-    @OneToMany
+    @ManyToOne
     public User user;
+
+    public Beer() {
+    }
+
+    public Beer(String name, String type, Integer calories, User user) {
+        this.name = name;
+        this.type = type;
+        this.calories = calories;
+        this.user = user;
+    }
 }

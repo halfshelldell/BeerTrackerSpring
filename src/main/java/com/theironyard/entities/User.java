@@ -12,11 +12,19 @@ import javax.persistence.*;
 public class User {
     @Id
     @GeneratedValue
-    Integer id;
+    int id;
 
     @Column(nullable = false)
     public String name;
 
     @Column(nullable = false)
     public String password;
+
+    public User() {
+    }
+
+    public User(String name, String password) {
+        this.name = name;
+        this.password = password;
+    }
 }
