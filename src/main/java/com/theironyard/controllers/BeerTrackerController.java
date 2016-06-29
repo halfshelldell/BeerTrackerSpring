@@ -43,8 +43,9 @@ public class BeerTrackerController {
     public String home(HttpSession session, Model model, String type, Integer calories, String search) {
         String username = (String) session.getAttribute("username");
         User user = users.findByName(username);
-        if (user != null) {
-            model.addAttribute("user", user);
+
+        if (username == null) {
+            return "login";
         }
 
         if (search != null) {
